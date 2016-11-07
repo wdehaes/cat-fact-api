@@ -1,11 +1,11 @@
 require 'test_helper'
-
 class Api::V1::FactsControllerTest < ActionController::TestCase
 
 	setup do
 		Fact.destroy_all
 	end
 	test "index json" do 
+
 		fact = FactoryGirl.create(:fact)
 		t = Time.now.to_i
 		token = Digest::SHA256.hexdigest("#{t}k1tten_m1tt3ns")

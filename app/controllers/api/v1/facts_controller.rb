@@ -1,6 +1,7 @@
 class Api::V1::FactsController < ApplicationController
 	def index
 		facts = Fact.page(params[:page] || 1).per(params[:per_page])
+		authorize_api_request!
 		render :json => {
 			:page        => params[:page] || 1,
 			:total       => facts.total_count,
@@ -11,6 +12,7 @@ class Api::V1::FactsController < ApplicationController
 
 	def create
 		fact = Fact.create(fact_params)
+		authorize_api_request!
 		if fact.valid?
 			render :json => fact, :status => :created
 		else
