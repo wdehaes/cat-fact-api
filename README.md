@@ -29,3 +29,16 @@ bundle exec rake db:create:all
 bundle exec rake db:migrate
 bundle exec rake db:seed
 ```
+
+### To run the tests
+
+```
+bundle exec rake db:migrate RAILS_ENV=test
+bundle exec rake:test
+```
+To run a specific test file:
+```
+ruby -Itest test/controllers/api/v1/facts_controller_test.rb
+```
+
+replacing the path as necessary
